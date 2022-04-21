@@ -1,13 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Task from "./components/Task";
+import App from "./App";
 
-const App = () => {
-    return (
-        <>
-            <Task />
-        </>
-    );
-};
 
 ReactDOM.render(<App />, document.getElementById('root'));
