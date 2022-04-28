@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import Divider from '@mui/material/Divider';
@@ -10,15 +10,23 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 const TaskList = (props) => {
+    const [list, updateList] = useState();
+    
+    const removeItem = (event) => {
+        event.preventDefault();
+    };
+    
     return (
         <div>
             {props.tasks.map((item) => (
                 <List key={item.id} sx={{
                     bgcolor: 'background.paper',
-                    maxWidth: 360,
-                    width: '100%'
+                    maxWidth: 300,
+                    width: '100vh'
                 }}>
-                    <ListItem alignItems="flex-start" >
+                    <ListItem alignItems="flex-start" sx={{
+                        maxWidth: 300
+                    }}>
                         <ListItemText
                             primary={item.title}
                             secondary={item.toDoList}
@@ -27,7 +35,7 @@ const TaskList = (props) => {
                             {/* <IconButton aria-label='checked'>
                                 <CheckCircleRoundedIcon />
                             </IconButton> */}
-                            <IconButton aria-label='delete'>
+                            <IconButton aria-label='delete' onClick={removeItem}>
                                 <DeleteRoundedIcon />
                             </IconButton>
                         </Stack>

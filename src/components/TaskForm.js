@@ -54,11 +54,15 @@ const TaskForm = () => {
     return (
         <div>
             <Container component='main' maxWidth='xs' sx={{
+                border: 1,
+                borderColor: 'grey.500',
+                borderRadius: 4,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginTop: 8
+                marginTop: 8,
+                py: 4
             }}>
                 <CssBaseline>
                     <Box>
