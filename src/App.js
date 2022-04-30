@@ -1,10 +1,10 @@
 import React from 'react';
-import Main from './components/Main';
+import Task from './components/Task';
 
 const App = () => {
     return (
         <div>
-            <Main />
+            <Task />
         </div>
     );
 };

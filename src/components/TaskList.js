@@ -10,22 +10,22 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 const TaskList = (props) => {
-    const [list, updateList] = useState();
-    
-    const removeItem = (event) => {
-        event.preventDefault();
-    };
-    
+    // const [list, updateList] = useState();
+
+    // const removeItem = (event) => {
+    //     event.preventDefault();
+    //     const newList = list.filter((item) => item.id !== id);
+
+    //     updateList(newList);
+    // };
+
     return (
-        <div>
+        <Stack direction='column'>
             {props.tasks.map((item) => (
                 <List key={item.id} sx={{
                     bgcolor: 'background.paper',
-                    maxWidth: 300,
-                    width: '100vh'
                 }}>
                     <ListItem alignItems="flex-start" sx={{
-                        maxWidth: 300
                     }}>
                         <ListItemText
                             primary={item.title}
@@ -35,7 +35,7 @@ const TaskList = (props) => {
                             {/* <IconButton aria-label='checked'>
                                 <CheckCircleRoundedIcon />
                             </IconButton> */}
-                            <IconButton aria-label='delete' onClick={removeItem}>
+                            <IconButton aria-label='delete'>
                                 <DeleteRoundedIcon />
                             </IconButton>
                         </Stack>
@@ -43,7 +43,7 @@ const TaskList = (props) => {
                     <Divider variant='fullWidth' />
                 </List>
             ))}
-        </div>
+        </Stack>
     );
 };
 

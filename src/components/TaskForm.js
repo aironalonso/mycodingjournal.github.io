@@ -1,11 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
 import FormControl from '@mui/material/FormControl';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import TaskList from './TaskList';
 import TextField from '@mui/material/TextField';
@@ -52,62 +48,62 @@ const TaskForm = () => {
     // const classes = useStyles();
 
     return (
-        <div>
-            <Container component='main' maxWidth='xs' sx={{
+        <Box sx={{
+            alignItems: 'center',
+            display: 'flex',
+            justifyContent: 'center'
+        }}>
+            <Stack direction='column' sx={{
+                alignContent: 'space-between',
+                alignItems: 'center',
                 border: 1,
                 borderColor: 'grey.500',
                 borderRadius: 4,
                 display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
                 justifyContent: 'center',
-                marginTop: 8,
-                py: 4
+                my: 2,
+                py: 4,
+                width: {xs: '96%', md: '50%'}
             }}>
-                <CssBaseline>
-                    <Box>
-                        <Typography align='center' gutterBottom variant='h4'>My Coding Journal</Typography>
-                        <Grid container>
-                            <FormControl component='form' fullWidth onSubmit={onFormSubmit}>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        fullWidth
-                                        id="standard-multiline-flexible"
-                                        label="Title"
-                                        multiline
-                                        maxRows={4}
-                                        defaultValue=''
-                                        // value={value}
-                                        // onChange={handleChange}
-                                        variant="standard"
-                                        inputRef={titleRef}
-                                        margin='normal'
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        fullWidth
-                                        id="standard-multiline-static"
-                                        label="To-Do-List"
-                                        multiline
-                                        rows={4}
-                                        defaultValue=""
-                                        variant="standard"
-                                        inputRef={toDoListRef}
-                                        margin='normal'
-                                    />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <Button color='success' variant='contained' type='submit'>Confirm</Button>
-                                </Grid>
-                            </FormControl>
-                            <TaskList tasks={taskList} />
-                        </Grid>
-                    </Box>
-                </CssBaseline>
-            </Container>
-
-        </div>
+                <Typography align='center' gutterBottom variant='h4' sx={{
+                    width: {xs: '70%', md: '100%'}
+                }}>My Coding Journal</Typography>
+                <FormControl component='form' fullWidth onSubmit={onFormSubmit} sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    width: '70%'
+                }}>
+                    <TextField
+                        fullWidth
+                        id="standard-multiline-flexible"
+                        label="Title"
+                        multiline
+                        maxRows={4}
+                        defaultValue=''
+                        // value={value}
+                        // onChange={handleChange}
+                        variant="standard"
+                        inputRef={titleRef}
+                        margin='normal'
+                    />
+                    <TextField
+                        fullWidth
+                        id="standard-multiline-static"
+                        label="To-Do-List"
+                        multiline
+                        rows={4}
+                        defaultValue=""
+                        variant="standard"
+                        inputRef={toDoListRef}
+                        margin='normal'
+                    />
+                    <Button color='success' variant='contained' type='submit' sx={{ my: 2 }}>Confirm</Button>
+                </FormControl>
+                <Stack  sx={{ my: 2, width: '70%' }}>
+                    <TaskList tasks={taskList} />
+                </Stack>
+            </Stack>
+        </Box>
     );
 };
 
